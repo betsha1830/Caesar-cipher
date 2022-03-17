@@ -49,3 +49,18 @@ def caesar_cipher (plain_text, shift_factor)
     ciphered_text
 
 end
+
+# Code ends here. The rest is "user-prompts".
+
+def user_prompts 
+    puts "Please enter a text to be ciphered."
+    text = gets.chomp
+    puts "Please enter a shift factor to encrypt your text."
+    shift = gets.chomp.to_i
+
+    ciphered =  caesar_cipher text, shift
+
+    puts ciphered
+end
+
+user_prompts
