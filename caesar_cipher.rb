@@ -25,21 +25,16 @@ def caesar_cipher (plain_text, shift_factor)
     plain_text.each_char do |letter|
         temp = letter.ord
 
-        if (letter == " ") 
-            ciphered_ascii.push(" ")
-
-        elsif (letter.ord <= 122 && letter.ord >= 97)
+        if (letter.ord <= 122 && letter.ord >= 97)
             
             if (temp + shift_factor > 122)
-                ciphered_ascii.push((temp + shift_factor - 122) + 97)
+                ciphered_ascii.push((temp + shift_factor - 122) + 96)
             else ciphered_ascii.push(temp + shift_factor)
             end
 
         elsif (letter.ord <= 90 && letter.ord >= 65)
-            if (letter == " ") 
-                ciphered_ascii.push(" ")
-            elsif (temp + shift_factor > 90)
-                ciphered_ascii.push((temp + shift_factor - 90) + 65)
+            if (temp + shift_factor > 90)
+                ciphered_ascii.push((temp + shift_factor - 90) + 64)
             else ciphered_ascii.push(temp + shift_factor)
             end
         else ciphered_ascii.push(letter)
@@ -51,8 +46,6 @@ def caesar_cipher (plain_text, shift_factor)
         ciphered_text += ascii.chr
     end
     
-    puts "#{ciphered_ascii} #{ciphered_text}"
+    ciphered_text
 
 end
-
-caesar_cipher "Why so serious?", 1
